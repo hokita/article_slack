@@ -10,5 +10,6 @@ WORKDIR /go
 ADD . /go
 
 RUN go mod tidy
+RUN go build -o article_slack *.go
 
-CMD go run *.go
+CMD ./article_slack
