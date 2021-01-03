@@ -9,4 +9,6 @@ ENV GOPATH=
 WORKDIR /go
 ADD . /go
 
-RUN go run *.go
+RUN go mod tidy
+
+CMD go run *.go
