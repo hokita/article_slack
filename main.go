@@ -40,7 +40,7 @@ func postArticle(articles []Article, count int) error {
 // postSlack function
 func postSlack(article Article, rank int) error {
 	payload := &slack.WebhookMessage{
-		Blocks: slack.Blocks{
+		Blocks: &slack.Blocks{
 			BlockSet: []slack.Block{
 				getArticleSectionBlock(article, rank),
 			},

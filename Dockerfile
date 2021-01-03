@@ -1,12 +1,12 @@
-# raspberry pi上で動かすのでarm製を使用する。
-# FROM golang:1.13
-FROM alexellis2/go-armhf:1.7.4
+FROM golang:1.15.6-alpine
+# For Raspberry Pi
+# FROM arm32v6/golang:1.15.6-alpine
 
 ENV GOBIN /go/bin
-
-RUN go get github.com/nlopes/slack
+ENV GO111MODULE=on
+ENV GOPATH=
 
 WORKDIR /go
 ADD . /go
 
-CMD ["go", "run", "main.go"]
+RUN go run *.go
